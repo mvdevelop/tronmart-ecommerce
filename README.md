@@ -14,13 +14,11 @@ TronMart delivers a fast, elegant, and user-friendly shopping experience designe
 
 🧩 React Router DOM — client-side routing
 
-🔗 Axios / Fetch API — for data fetching (if applicable)
-
 📦 Installation
 
 Clone the repository and install dependencies:
 
-git clone https://github.com/yourusername/tronmart-ecommerce.git
+git clone https://github.com/mvdevelop/tronmart-ecommerce.git
 cd tronmart-ecommerce
 npm install
 
