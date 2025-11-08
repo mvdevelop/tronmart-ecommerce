@@ -1,14 +1,34 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 
 
 
 export default function Nav() {
+
+  const [ menuOpen, setMenuOpen ] = useState(false);
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+  
+  const [ open, setOpen ] = useState(false);
+  
+  const categories = [
+    ["Smartphone", "📱"], ["Laptop", "💻"], ["Camera", "📷"], ["Headphones", "🎧"], 
+    ["PC Gaming", "🎮"],  ["Tablets", "📲"], ["Television", "📺"]
+  ];
+
   return (
     <>
-        <nav className='text-5xl'>
-            Nav
-        </nav>
+      <nav className='w-full flex flex-col justify-center items-center relative'>
+        {/* Top Bar */}
+        <div className="top-nav w-full flex justify-between items-center bg-black text-white px-[8%] lg:px-[12%] py-3 text-sm">
+          <div className='flex w-1/2 gap-5 items-center'>
+            <div className='relative group'>
+              <span className='cursor-pointer flex items-center hover:text-blue-600'>
+                English <span className='ml-1 text-xs'>▼</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </nav>
     </>
   )
 }
