@@ -23,7 +23,7 @@ export default function Nav() {
               <span className='cursor-pointer flex items-center hover:text-blue-300'>
                 English <span className='ml-1 text-xs'>▼</span>
               </span>
-              <ul className='absolute top-full left-0 bg-white text-black shadow-md rounded-md p-4 hidden group-hover:flex flex-col gap-2 z-50'>
+              <ul className='absolute top-full left-0 bg-white text-black shadow-md rounded-md p-4 transition hidden group-hover:flex flex-col gap-2 z-50'>
                 <li>French</li>
                 <li>Deutsch</li>
               </ul>
