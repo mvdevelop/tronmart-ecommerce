@@ -1,7 +1,9 @@
 
-@import "tailwindcss";
-
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+@import "tailwindcss";
+@import "tailwindcss/preflight";
+@tailwind utilities;
 
 * {
     margin: 0;
@@ -26,3 +28,5 @@
     --bricolage-font: "Bricolage Grotesque", sans-serif;
     --plus-jakarta-font: "Plus Jakarta Sans", sans-serif;
 }
+
+
