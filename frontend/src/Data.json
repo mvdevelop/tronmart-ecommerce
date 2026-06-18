@@ -1,0 +1,125 @@
+
+{
+    "products" : [
+        {
+            "id": 1,
+            "name": "Wireless Audio System Multiroom 360 degree Full base audio",
+            "category": "Speakers",
+            "price": "685.00",
+            "productsImage": "/images/Product-01.png" 
+        },
+        {
+            "id": 2,
+            "name": "Tablet White EliteBook Revolve 810 G2",
+            "category": "Laptop",
+            "oldPrice": "2,299.00",
+            "price": "1,999.00",
+            "productsImage": "/images/Product-02.png" 
+        },
+        {
+            "id": 3,
+            "name": "Purple Solo 2 Wireless",
+            "category": "Headphones",
+            "price": "685.00",
+            "productsImage": "/images/Product-03.png" 
+        },
+        {
+            "id": 4,
+            "name": "Smartphone 6S 32GB LTE",
+            "category": "Phones",
+            "price": "599.00",
+            "productsImage": "/images/Product-04.png" 
+        },
+        {
+            "id": 5,
+            "name": "Widescreen NX Mini F1 SMART NX",
+            "category": "Camera",
+            "price": "699.00",
+            "productsImage": "/images/Product-05.png" 
+        },
+        {
+            "id": 6,
+            "name": "Full Color LaserJet Pro M452dn",
+            "category": "Printer",
+            "price": "685.00",
+            "productsImage": "/images/Product-06.png" 
+        },
+        {
+            "id": 7,
+            "name": "Game Console Controller + USB 3.0 Cable",
+            "category": "Gaming",
+            "price": "199.00",
+            "productsImage": "/images/Product-07.png" 
+        },
+        {
+            "id": 8,
+            "name": "Tablet Air 3 Wifi 64GB Gold",
+            "category": "Tablets",
+            "price": "629.00",
+            "productsImage": "/images/Product-08.png" 
+        },
+        {
+            "id": 9,
+            "name": "Tablet White EliteBook Revolve 810 G2",
+            "category": "Laptops & Computers",
+            "price": "1299.00",
+            "productsImage": "/images/Product-09.png" 
+        },
+        {
+            "id": 10,
+            "name": "Pendrive USB 3.0 Flash 64 GB",
+            "category": "Accesories",
+            "price": "110.00",
+            "productsImage": "/images/Product-10.png" 
+        },
+        {
+            "id": 11,
+            "name": "Smartwatch 2.0 LTE Wifi",
+            "category": "Smartwatch",
+            "price": "110.00",
+            "productsImage": "/images/Product-11.png" 
+        },
+        {
+            "id": 12,
+            "name": "Gear Virtual Reality",
+            "category": "Smartwatch",
+            "price": "149.00",
+            "productsImage": "/images/Product-12.png" 
+        },
+        {
+            "id": 13,
+            "name": "Wireless Audio System Multiroom 360 degree Full base audio",
+            "category": "Speakers",
+            "price": "658.00",
+            "productsImage": "/images/Product-13.png" 
+        },
+        {
+            "id": 14,
+            "name": "Wireless Audio System Multiroom 360",
+            "category": "Phone",
+            "price": "685.00",
+            "productsImage": "/images/Product-14.png" 
+        },
+        {
+            "id": 15,
+            "name": "Tablet Thin EliteBook Revolve 810 G6",
+            "category": "PC",
+            "price": "895.00",
+            "productsImage": "/images/Product-15.png" 
+        },
+        {
+            "id": 16,
+            "name": "Notebook Black Spire V Nitro VN7-591G",
+            "category": "",
+            "price": "489.00",
+            "productsImage": "/images/Product-16.png" 
+        },
+        {
+            "id": 17,
+            "name": "Samsung Digital Camera",
+            "category": "Camera",
+            "price": "499.00",
+            "productsImage": "/images/Product-17.png" 
+        }
+    ]
+}
