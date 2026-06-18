@@ -3,13 +3,14 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation, EffectFade } from 'swiper/modules';
 import { Link } from 'react-router-dom';
 import { HiOutlineArrowRight } from 'react-icons/hi';
+import type { HeroSlide } from '../types';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
 
-const heroSlides = [
+const heroSlides: HeroSlide[] = [
   {
     image: '/src/assets/banner-1.jpg',
     alt: 'Festival do Whey',

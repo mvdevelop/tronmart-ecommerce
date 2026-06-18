@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { HiOutlineArrowRight } from 'react-icons/hi';
+import type { PromoBanner } from '../types';
 import useInView from '../hooks/useInView';
 
-const banners = [
+const banners: PromoBanner[] = [
   {
     title: 'FINO E RESISTENTE',
     subtitle: 'NOVO EDGE 70',
@@ -56,12 +57,12 @@ const banners = [
   },
 ];
 
-function BannerCard({ banner, index }) {
+function BannerCard({ banner, index }: { banner: PromoBanner; index: number }) {
   const [ref, isInView] = useInView({ threshold: 0.1 });
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
 
-  const handleMouseMove = (e) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     setMousePos({
       x: ((e.clientX - rect.left) / rect.width - 0.5) * 8,
@@ -83,7 +84,6 @@ function BannerCard({ banner, index }) {
         transition: 'transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, opacity 0.8s ease',
       }}
     >
-      {/* Decorative elements */}
       <div className="absolute -top-8 -right-8 w-40 h-40 bg-white/5 rounded-full group-hover:scale-150 transition-transform duration-700" />
       <div className="absolute -bottom-6 -left-6 w-28 h-28 bg-white/5 rounded-full group-hover:scale-125 transition-transform duration-700 delay-100" />
       <div className="absolute top-1/2 right-8 w-16 h-16 bg-white/5 rounded-full hidden md:block group-hover:scale-150 transition-transform duration-700 delay-200" />

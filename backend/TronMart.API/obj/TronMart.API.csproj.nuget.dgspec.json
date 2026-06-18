@@ -1,0 +1,74 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/vinicius10011/Programming/git-clones/tronmart-ecommerce/backend/TronMart.API/TronMart.API.csproj": {}
+  },
+  "projects": {
+    "/home/vinicius10011/Programming/git-clones/tronmart-ecommerce/backend/TronMart.API/TronMart.API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/vinicius10011/Programming/git-clones/tronmart-ecommerce/backend/TronMart.API/TronMart.API.csproj",
+        "projectName": "TronMart.API",
+        "projectPath": "/home/vinicius10011/Programming/git-clones/tronmart-ecommerce/backend/TronMart.API/TronMart.API.csproj",
+        "packagesPath": "/home/vinicius10011/.nuget/packages/",
+        "outputPath": "/home/vinicius10011/Programming/git-clones/tronmart-ecommerce/backend/TronMart.API/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/vinicius10011/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[3.9.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.6.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.128/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

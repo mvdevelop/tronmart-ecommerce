@@ -2,9 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { HiOutlineTruck, HiOutlineCash, HiOutlineChartBar, HiOutlinePlay } from 'react-icons/hi';
 import { FiMonitor } from 'react-icons/fi';
+import type { MeliPlusBenefit, StreamingService } from '../types';
 import useInView from '../hooks/useInView';
 
-const benefits = [
+const benefits: MeliPlusBenefit[] = [
   {
     icon: HiOutlineTruck,
     title: 'Frete grátis rápido',
@@ -31,7 +32,7 @@ const benefits = [
   },
 ];
 
-const streamingServices = [
+const streamingServices: StreamingService[] = [
   { name: 'Disney+', icon: '🎬', description: 'Plano Padrão com anúncios', badge: 'NOVO', color: 'from-blue-800 to-blue-950' },
   { name: 'Globoplay Premium', icon: '📺', description: '30% OFF', badge: null, color: 'from-red-700 to-red-950' },
   { name: 'HBO Max', icon: '🅿️', description: '15% OFF', badge: 'NOVO', color: 'from-purple-700 to-purple-950' },
@@ -54,7 +55,6 @@ export default function MeliPlus() {
       <div className="max-w-[1280px] mx-auto px-4" ref={sectionRef}>
         {/* Mercado Play Banner */}
         <div className={`bg-gradient-to-br from-purple-900 via-purple-800 to-indigo-900 rounded-3xl p-8 md:p-12 mb-8 text-white overflow-hidden relative transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-          {/* Decorative orbs */}
           <div className="absolute -top-20 -right-20 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl animate-float" />
           <div className="absolute -bottom-20 -left-20 w-48 h-48 bg-indigo-500/20 rounded-full blur-3xl animate-float-delayed" />
 
@@ -73,7 +73,6 @@ export default function MeliPlus() {
               </Link>
             </div>
 
-            {/* Movie Cards */}
             <div className="flex gap-4">
               {mercadoPlayMovies.map((movie, i) => (
                 <div

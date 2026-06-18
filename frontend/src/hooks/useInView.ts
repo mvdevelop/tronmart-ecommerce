@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
+import type { UseInViewOptions } from '../types';
 
-export default function useInView({ threshold = 0.1, triggerOnce = true } = {}) {
-  const ref = useRef(null);
+export default function useInView({ threshold = 0.1, triggerOnce = true }: UseInViewOptions = {}) {
+  const ref = useRef<HTMLDivElement>(null);
   const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
@@ -24,5 +25,5 @@ export default function useInView({ threshold = 0.1, triggerOnce = true } = {}) 
     return () => observer.disconnect();
   }, [threshold, triggerOnce]);
 
-  return [ref, isInView];
+  return [ref, isInView] as const;
 }

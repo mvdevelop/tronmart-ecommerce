@@ -1,6 +1,10 @@
 import React, { useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import { HiOutlineSearch, HiOutlineShoppingCart, HiOutlineHeart, HiOutlineMenu, HiOutlineX, HiOutlineUser, HiOutlineChevronDown, HiOutlineLocationMarker } from 'react-icons/hi';
+import {
+  HiOutlineSearch, HiOutlineShoppingCart, HiOutlineHeart,
+  HiOutlineMenu, HiOutlineX, HiOutlineUser,
+  HiOutlineChevronDown, HiOutlineLocationMarker
+} from 'react-icons/hi';
 import { FiPackage } from 'react-icons/fi';
 
 export default function Nav() {
@@ -11,7 +15,7 @@ export default function Nav() {
 
   const toggleMenu = useCallback(() => setMenuOpen(prev => !prev), []);
 
-  const categories = [
+  const categories: string[] = [
     "Carros, Motos e Outros", "Acessórios para Veículos", "Casa, Móveis e Decoração",
     "Celulares e Telefones", "Calçados, Roupas e Bolsas", "Informática",
     "Eletrodomésticos", "Esportes e Fitness", "Imóveis", "Ferramentas",
@@ -20,10 +24,13 @@ export default function Nav() {
     "Livros, Revistas e Comics", "Pet Shop", "Saúde", "Serviços"
   ];
 
-  const quickLinks = [
+  const quickLinks: string[] = [
     "Categorias", "Ofertas", "Cupons", "Supermercado", "Moda",
     "Mercado Play", "Vender", "Contato"
   ];
+
+  const slugify = (text: string): string =>
+    text.toLowerCase().replace(/\s+/g, '-');
 
   return (
     <>
@@ -65,7 +72,6 @@ export default function Nav() {
       {/* ===== MAIN HEADER ===== */}
       <header className="bg-gradient-to-r from-purple-900 via-purple-900 to-purple-800 sticky top-0 z-50 shadow-lg">
         <div className="max-w-[1280px] mx-auto px-4 py-3 flex items-center gap-4">
-          {/* Mobile Menu Toggle */}
           <button
             onClick={toggleMenu}
             className="lg:hidden text-2xl p-1.5 text-white hover:bg-purple-800 rounded-lg transition-colors"
@@ -74,7 +80,6 @@ export default function Nav() {
             {menuOpen ? <HiOutlineX className="transition-transform duration-300 rotate-90" /> : <HiOutlineMenu />}
           </button>
 
-          {/* Logo */}
           <Link to="/" className="flex-shrink-0 group">
             <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">
               <span className="text-purple-300 group-hover:text-purple-200 transition-colors duration-300">Tron</span>
@@ -82,7 +87,6 @@ export default function Nav() {
             </h1>
           </Link>
 
-          {/* Search Bar */}
           <div className="hidden sm:flex flex-1 max-w-[600px] relative">
             <div className="w-full flex shadow-lg rounded-xl overflow-hidden bg-white border-2 border-transparent focus-within:border-purple-400 focus-within:shadow-purple-500/20 transition-all duration-300">
               <input
@@ -99,7 +103,6 @@ export default function Nav() {
             </div>
           </div>
 
-          {/* Mobile Search Toggle + Cart */}
           <div className="flex sm:hidden items-center gap-3 ml-auto">
             <button onClick={() => setSearchOpen(!searchOpen)} className="text-2xl p-1.5 text-white hover:bg-purple-800 rounded-lg transition-colors">
               <HiOutlineSearch />
@@ -110,14 +113,12 @@ export default function Nav() {
             </Link>
           </div>
 
-          {/* Buy Button (desktop) */}
           <button className="hidden lg:flex items-center gap-2.5 px-5 py-3 bg-purple-700 hover:bg-purple-600 active:bg-purple-500 text-white text-sm font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/30 active:scale-95">
             <FiPackage className="text-lg" />
             Minhas compras
           </button>
         </div>
 
-        {/* Mobile Search (expanded) */}
         {searchOpen && (
           <div className="sm:hidden px-4 pb-3 animate-fadeInDown">
             <div className="flex shadow-lg rounded-xl overflow-hidden bg-white border-2 border-purple-400">
@@ -137,7 +138,6 @@ export default function Nav() {
       {/* ===== CATEGORIES BAR ===== */}
       <nav className="bg-gradient-to-r from-purple-800 via-purple-800 to-purple-700 border-b border-purple-600 shadow-md">
         <div className="max-w-[1280px] mx-auto px-4">
-          {/* Quick Links */}
           <div className="hidden lg:flex items-center gap-0 py-2 overflow-x-auto">
             <div
               className="relative"
@@ -149,14 +149,13 @@ export default function Nav() {
                 Categorias
                 <HiOutlineChevronDown className={`text-xs transition-all duration-300 ${showCategoryMenu ? 'rotate-180' : ''}`} />
               </button>
-              {/* Dropdown Categories */}
               {showCategoryMenu && (
                 <div className="absolute top-full left-0 bg-white shadow-xl border border-gray-200 rounded-xl z-50 min-w-[280px] max-h-[70vh] overflow-y-auto animate-fadeInUp">
                   <div className="py-1">
                     {categories.map((cat, i) => (
                       <Link
                         key={i}
-                        to={`/categoria/${cat.toLowerCase().replace(/\s+/g, '-')}`}
+                        to={`/categoria/${slugify(cat)}`}
                         className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-700 hover:pl-5 border-b border-gray-50 last:border-0 transition-all duration-200"
                       >
                         {cat}
@@ -173,7 +172,7 @@ export default function Nav() {
             {quickLinks.filter(l => l !== "Categorias").map((link, i) => (
               <Link
                 key={i}
-                to={`/${link.toLowerCase().replace(/\s+/g, '-')}`}
+                to={`/${slugify(link)}`}
                 className="px-3 py-1.5 text-sm text-purple-200 hover:text-white hover:bg-purple-700/60 rounded-lg whitespace-nowrap transition-all duration-200"
               >
                 {link}
@@ -181,12 +180,11 @@ export default function Nav() {
             ))}
           </div>
 
-          {/* Mobile Categories (horizontal scroll) */}
           <div className="lg:hidden flex items-center gap-1.5 py-2 overflow-x-auto scrollbar-hide">
             {["Categorias", "Ofertas", "Cupons", "Supermercado", "Moda", "Mercado Play", "Vender"].map((link, i) => (
               <Link
                 key={i}
-                to={`/${link.toLowerCase().replace(/\s+/g, '-')}`}
+                to={`/${slugify(link)}`}
                 className="flex-shrink-0 px-3.5 py-2 text-xs font-medium text-purple-200 hover:text-white bg-purple-700/40 hover:bg-purple-600 rounded-full whitespace-nowrap border border-purple-500/50 transition-all duration-200"
               >
                 {link}
@@ -220,7 +218,7 @@ export default function Nav() {
               {["Minhas compras", "Favoritos", "Carrinho", "Categorias", "Ofertas", "Cupons", "Supermercado", "Moda", "Mercado Play", "Vender", "Contato", "Ajuda"].map((item, i) => (
                 <Link
                   key={i}
-                  to={`/${item.toLowerCase().replace(/\s+/g, '-')}`}
+                  to={`/${slugify(item)}`}
                   className="block px-4 py-3 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-700 hover:pl-5 border-b border-gray-50 transition-all duration-200"
                   onClick={toggleMenu}
                 >

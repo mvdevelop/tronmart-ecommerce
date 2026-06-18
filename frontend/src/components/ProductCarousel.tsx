@@ -3,16 +3,17 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
 import { Link } from 'react-router-dom';
 import { HiOutlineTruck, HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi';
+import type { Product, ProductCarouselProps } from '../types';
 import useInView from '../hooks/useInView';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-const formatPrice = (price) => {
+const formatPrice = (price: string): string => {
   return parseFloat(price.replace(/[^0-9.,]/g, '').replace(',', '.') || price).toFixed(2);
 };
 
-const calcDiscount = (oldPrice, currentPrice) => {
+const calcDiscount = (oldPrice: string, currentPrice: string): number | null => {
   const old = parseFloat(String(oldPrice).replace(/[^0-9.,]/g, '').replace(',', '.'));
   const curr = parseFloat(String(currentPrice).replace(/[^0-9.,]/g, '').replace(',', '.'));
   if (old && curr && old > curr) {
@@ -21,10 +22,10 @@ const calcDiscount = (oldPrice, currentPrice) => {
   return null;
 };
 
-export default function ProductCarousel({ products, title, subtitle }) {
+export default function ProductCarousel({ products, title, subtitle }: ProductCarouselProps) {
   const [sectionRef, isInView] = useInView({ threshold: 0.1 });
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
+  const prevRef = useRef<HTMLButtonElement>(null);
+  const nextRef = useRef<HTMLButtonElement>(null);
 
   if (!products || products.length === 0) return null;
 
@@ -34,7 +35,6 @@ export default function ProductCarousel({ products, title, subtitle }) {
       className={`bg-white py-8 md:py-10 transition-all duration-700 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
     >
       <div className="max-w-[1280px] mx-auto px-4">
-        {/* Section Header */}
         <div className="flex items-center justify-between mb-6">
           <div className="animate-fadeInRight">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 leading-tight">
@@ -52,7 +52,6 @@ export default function ProductCarousel({ products, title, subtitle }) {
           </Link>
         </div>
 
-        {/* Carousel */}
         <div className="relative group">
           <Swiper
             modules={[Navigation, Autoplay]}
@@ -75,7 +74,7 @@ export default function ProductCarousel({ products, title, subtitle }) {
             }}
             className="pb-2"
           >
-            {products.map((product) => {
+            {products.map((product: Product) => {
               const discount = product.oldPrice ? calcDiscount(product.oldPrice, product.price) : null;
               const priceNum = parseFloat(formatPrice(product.price));
               const installment = priceNum / 10;
@@ -86,14 +85,13 @@ export default function ProductCarousel({ products, title, subtitle }) {
                     to={`/produto/${product.id}`}
                     className="block bg-white border border-gray-100 rounded-xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-400 group/card h-full"
                   >
-                    {/* Image */}
                     <div className="relative aspect-square bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-5 overflow-hidden">
                       <img
                         src={product.productsImage || '/placeholder.svg'}
                         alt={product.name}
                         className="w-full h-full object-contain group-hover/card:scale-110 transition-transform duration-500"
-                        onError={(e) => {
-                          e.target.src = `https://placehold.co/300x300/e2e8f0/64748b?text=${encodeURIComponent(product.name.substring(0, 20))}`;
+                        onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
+                          e.currentTarget.src = `https://placehold.co/300x300/e2e8f0/64748b?text=${encodeURIComponent(product.name.substring(0, 20))}`;
                         }}
                       />
                       {discount && (
@@ -103,7 +101,6 @@ export default function ProductCarousel({ products, title, subtitle }) {
                       )}
                     </div>
 
-                    {/* Info */}
                     <div className="p-4">
                       {product.oldPrice && (
                         <span className="text-xs md:text-sm text-gray-400 line-through mb-1 block">
@@ -139,7 +136,6 @@ export default function ProductCarousel({ products, title, subtitle }) {
             })}
           </Swiper>
 
-          {/* Custom Navigation Buttons */}
           <button
             ref={prevRef}
             className="swiper-prev-custom absolute -left-3 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white shadow-lg rounded-full flex items-center justify-center text-gray-600 hover:text-purple-700 hover:shadow-xl opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110 hidden md:flex border border-gray-100"

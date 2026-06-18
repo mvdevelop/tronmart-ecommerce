@@ -2,9 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { HiOutlineTruck, HiOutlineCreditCard, HiOutlineShieldCheck, HiOutlineStar, HiOutlineOfficeBuilding, HiOutlineViewGrid } from 'react-icons/hi';
 import { FiPercent } from 'react-icons/fi';
+import type { BenefitItem } from '../types';
 import useInView from '../hooks/useInView';
 
-const benefits = [
+const benefits: BenefitItem[] = [
   {
     icon: HiOutlineTruck,
     title: 'Frete grátis',
@@ -63,7 +64,7 @@ const benefits = [
   },
 ];
 
-function BenefitCard({ benefit, index }) {
+function BenefitCard({ benefit, index }: { benefit: BenefitItem; index: number }) {
   const [ref, isInView] = useInView({ threshold: 0.1 });
   const Icon = benefit.icon;
 

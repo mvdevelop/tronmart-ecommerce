@@ -1,27 +1,31 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { HiOutlineShieldCheck, HiOutlineTruck, HiOutlineCreditCard } from 'react-icons/hi';
+import type { FooterSection } from '../types';
+
+const footerSections: FooterSection[] = [
+  {
+    title: 'Sobre',
+    links: ['Trabalhe conosco', 'Termos e condições', 'Promoções', 'Como cuidamos da sua privacidade', 'Acessibilidade', 'Contato', 'Informações sobre seguros', 'Programa de Afiliados']
+  },
+  {
+    title: 'Comprar',
+    links: ['Como comprar', 'Formas de pagamento', 'Frete grátis', 'Compra garantida', 'Devolução', 'Garantia']
+  },
+  {
+    title: 'Vender',
+    links: ['Como vender', 'Tabela de taxas', 'Soluções para lojistas', 'Programa de Afiliados', 'Anuncie seus produtos']
+  },
+  {
+    title: 'Ajuda',
+    links: ['Central de ajuda', 'Meus dados', 'Minhas compras', 'Meios de pagamento', 'Segurança']
+  }
+];
+
+const slugify = (text: string): string =>
+  text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 
 export default function Footer() {
-  const footerSections = [
-    {
-      title: 'Sobre',
-      links: ['Trabalhe conosco', 'Termos e condições', 'Promoções', 'Como cuidamos da sua privacidade', 'Acessibilidade', 'Contato', 'Informações sobre seguros', 'Programa de Afiliados']
-    },
-    {
-      title: 'Comprar',
-      links: ['Como comprar', 'Formas de pagamento', 'Frete grátis', 'Compra garantida', 'Devolução', 'Garantia']
-    },
-    {
-      title: 'Vender',
-      links: ['Como vender', 'Tabela de taxas', 'Soluções para lojistas', 'Programa de Afiliados', 'Anuncie seus produtos']
-    },
-    {
-      title: 'Ajuda',
-      links: ['Central de ajuda', 'Meus dados', 'Minhas compras', 'Meios de pagamento', 'Segurança']
-    }
-  ];
-
   return (
     <footer id="footer" className="bg-gray-950 text-gray-300">
       {/* Payment & Shipping Info */}
@@ -35,7 +39,7 @@ export default function Footer() {
               <div>
                 <h3 className="font-bold text-white text-lg mb-1.5">Escolha como pagar</h3>
                 <p className="text-sm text-gray-400 leading-relaxed">
-                  Com Mercado Pago, você paga com cartão, boleto ou Pix. Você também pode pagar em até 12x sem cartão com a Linha de Crédito.
+                  Com Mercado Pago, você paga com cartão, boleto ou Pix. Você também pode pagar em até 12x sem cartão.
                 </p>
                 <Link to="/meios-de-pagamento" className="text-sm text-purple-400 hover:text-purple-300 font-semibold mt-2 inline-block transition-colors">
                   Como pagar com Mercado Pago →
@@ -62,7 +66,7 @@ export default function Footer() {
               <div>
                 <h3 className="font-bold text-white text-lg mb-1.5">Segurança, do início ao fim</h3>
                 <p className="text-sm text-gray-400 leading-relaxed">
-                  Você não gostou do que comprou? Devolva! No TronMart não há nada que você não possa fazer, porque você está sempre protegido.
+                  Você não gostou do que comprou? Devolva! No TronMart você está sempre protegido.
                 </p>
                 <Link to="/seguranca" className="text-sm text-purple-400 hover:text-purple-300 font-semibold mt-2 inline-block transition-colors">
                   Como te protegemos →
@@ -84,7 +88,7 @@ export default function Footer() {
                   {section.links.map((link, j) => (
                     <li key={j}>
                       <Link
-                        to={`/${link.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`}
+                        to={`/${slugify(link)}`}
                         className="text-sm md:text-base text-gray-400 hover:text-purple-400 hover:pl-1 transition-all duration-200"
                       >
                         {link}

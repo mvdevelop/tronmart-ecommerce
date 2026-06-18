@@ -2,12 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
+import type { CategoryItem } from '../types';
 import useInView from '../hooks/useInView';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-const categories = [
+const categories: CategoryItem[] = [
   { name: 'Carros, Motos e Outros', icon: '🚗', color: 'bg-blue-50 hover:bg-blue-100' },
   { name: 'Acessórios para Veículos', icon: '🔧', color: 'bg-gray-50 hover:bg-gray-100' },
   { name: 'Casa, Móveis e Decoração', icon: '🏠', color: 'bg-yellow-50 hover:bg-yellow-100' },

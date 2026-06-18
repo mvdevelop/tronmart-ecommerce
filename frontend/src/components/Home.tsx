@@ -5,6 +5,7 @@ import ProductCarousel from './ProductCarousel';
 import PromoBanners from './PromoBanners';
 import MeliPlus from './MeliPlus';
 import CategoryGrid from './CategoryGrid';
+import type { Product } from '../types';
 
 import productData from '../Data.json';
 
@@ -19,7 +20,7 @@ function SectionDivider() {
 }
 
 export default function Home() {
-  const { products } = productData;
+  const { products } = productData as { products: Product[] };
 
   const recentlyViewed = products.slice(0, 8);
   const maisVendidos = products.slice(5, 14);
@@ -27,13 +28,10 @@ export default function Home() {
 
   return (
     <main id="main-content">
-      {/* Hero Banner - Full Width Impact */}
       <HeroBanner />
 
-      {/* Benefits Cards */}
       <BenefitsRow />
 
-      {/* Recently Viewed / Inspirado no último visto */}
       <ProductCarousel
         products={recentlyViewed}
         title="Inspirado no último visto"
@@ -42,7 +40,6 @@ export default function Home() {
 
       <SectionDivider />
 
-      {/* Promotional Carousel - Top Deals */}
       {ofertas.length > 0 && (
         <ProductCarousel
           products={ofertas}
@@ -51,10 +48,8 @@ export default function Home() {
         />
       )}
 
-      {/* Large Promotional Banners */}
       <PromoBanners />
 
-      {/* Mais Vendidos */}
       <ProductCarousel
         products={maisVendidos}
         title="Mais vendidos 🔥"
@@ -63,13 +58,10 @@ export default function Home() {
 
       <SectionDivider />
 
-      {/* Meli+ Subscription & Entertainment */}
       <MeliPlus />
 
-      {/* Full Category Grid */}
       <CategoryGrid />
 
-      {/* Bottom spacing */}
       <div className="h-4 bg-gray-50" />
     </main>
   );
