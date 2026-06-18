@@ -95,10 +95,10 @@ export default function Nav() {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Buscar produtos, marcas e muito mais..."
-                className="flex-1 px-5 py-4 text-lg outline-none text-gray-700 placeholder-gray-400"
+                className="flex-1 px-6 py-5 text-xl outline-none text-gray-700 placeholder-gray-400"
               />
-              <button className="px-7 flex items-center justify-center bg-gray-800 hover:bg-gray-700 border-l border-gray-700 text-white transition-all duration-300 hover:shadow-inner">
-                <HiOutlineSearch className="text-2xl" />
+              <button className="px-8 flex items-center justify-center bg-gray-800 hover:bg-gray-700 border-l border-gray-700 text-white transition-all duration-300 hover:shadow-inner">
+                <HiOutlineSearch className="text-3xl" />
               </button>
             </div>
           </div>
@@ -120,15 +120,15 @@ export default function Nav() {
         </div>
 
         {searchOpen && (
-          <div className="sm:hidden px-4 pb-3 animate-fadeInDown">
+          <div className="sm:hidden px-4 pb-4 animate-fadeInDown">
             <div className="flex shadow-lg rounded-xl overflow-hidden bg-white border-2 border-gray-600">
               <input
                 type="text"
                 placeholder="Buscar produtos, marcas e muito mais..."
-                className="flex-1 px-4 py-3 text-sm outline-none text-gray-700 placeholder-gray-400"
+                className="flex-1 px-5 py-4 text-base outline-none text-gray-700 placeholder-gray-400"
               />
-              <button className="px-5 flex items-center justify-center bg-gray-800 text-white">
-                <HiOutlineSearch className="text-lg" />
+              <button className="px-6 flex items-center justify-center bg-gray-800 text-white">
+                <HiOutlineSearch className="text-xl" />
               </button>
             </div>
           </div>

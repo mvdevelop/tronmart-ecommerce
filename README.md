@@ -70,5 +70,3 @@ Configure em `appsettings.json`:
 - [ ] Docker + CI/CD
 
 ## 📄 MIT
-
-<div align="center">Feito com 💜 por <a href="https://github.com/mvdevelop">mvdevelop</a></div>

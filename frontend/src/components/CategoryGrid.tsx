@@ -44,13 +44,13 @@ export default function CategoryGrid() {
   const [sectionRef, isInView] = useInView({ threshold: 0.05 });
 
   return (
-    <section className="bg-gradient-to-b from-gray-100 to-gray-50 py-10 md:py-12 lg:py-16">
-      <div className="max-w-[1280px] mx-auto px-4">
+    <section className="bg-gradient-to-b from-gray-100 to-gray-50 py-12 md:py-16 lg:py-20">
+      <div className="max-w-[1440px] mx-auto p-[5%]">
         <div
           ref={sectionRef}
-          className={`bg-white rounded-3xl p-6 md:p-10 shadow-lg border border-gray-100 transition-all duration-700 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+          className={`bg-white rounded-3xl p-6 md:p-8 lg:p-12 shadow-lg border border-gray-100 transition-all duration-700 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
         >
-          <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center justify-between mb-8 md:mb-10">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-gray-900">
               <span className="text-purple-700">Categorias</span>
             </h2>
@@ -60,12 +60,12 @@ export default function CategoryGrid() {
           </div>
 
           {/* Desktop Grid */}
-          <div className="hidden md:grid grid-cols-4 xl:grid-cols-6 gap-3">
+          <div className="hidden md:grid grid-cols-4 xl:grid-cols-6 gap-4 md:gap-5">
             {categories.map((cat, index) => (
               <Link
                 key={index}
                 to={`/categoria/${cat.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`}
-                className={`flex flex-col items-center gap-3 p-5 rounded-2xl ${cat.color} hover:shadow-lg hover:scale-105 transition-all duration-300 border border-transparent hover:border-gray-200 group`}
+                className={`flex flex-col items-center gap-3 p-6 rounded-2xl ${cat.color} hover:shadow-lg hover:scale-105 transition-all duration-300 border border-transparent hover:border-gray-200 group`}
                 style={{
                   transitionDelay: `${index * 30}ms`,
                   opacity: isInView ? 1 : 0,

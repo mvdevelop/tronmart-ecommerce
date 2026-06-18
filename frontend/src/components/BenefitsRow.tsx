@@ -71,7 +71,7 @@ function BenefitCard({ benefit, index }: { benefit: BenefitItem; index: number }
   return (
     <div
       ref={ref}
-      className={`bg-white rounded-xl p-5 flex items-start gap-4 border border-gray-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-1 hover:border-purple-200/50 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+      className={`bg-white rounded-xl p-6 flex items-start gap-4 border border-gray-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-1 hover:border-purple-200/50 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
       style={{ transitionDelay: `${index * 80}ms` }}
     >
       <div className={`w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 ${benefit.color} shadow-sm`}>
@@ -94,9 +94,9 @@ function BenefitCard({ benefit, index }: { benefit: BenefitItem; index: number }
 
 export default function BenefitsRow() {
   return (
-    <section className="bg-gradient-to-b from-gray-50 to-gray-100 py-10 md:py-12 lg:py-16">
-      <div className="max-w-[1280px] mx-auto px-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+    <section className="bg-gradient-to-b from-gray-50 to-gray-100 py-12 md:py-16 lg:py-20">
+      <div className="max-w-[1440px] mx-auto p-[5%]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-6">
           {benefits.map((benefit, index) => (
             <BenefitCard key={index} benefit={benefit} index={index} />
           ))}

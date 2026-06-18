@@ -22,17 +22,17 @@ export default function Newsletter() {
       ref={sectionRef}
       className={`bg-gradient-to-br from-purple-900 via-purple-800 to-indigo-900 py-12 md:py-16 transition-all duration-700 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
     >
-      <div className="max-w-[1280px] mx-auto px-4">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+      <div className="max-w-[1440px] mx-auto p-[5%]">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-10 md:gap-12">
           {/* Left Text */}
           <div className="text-white text-center lg:text-left lg:max-w-lg">
-            <span className="inline-block bg-white/10 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3">
+            <span className="inline-block bg-white/10 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-4">
               📬 Fique por dentro
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-3 leading-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-4 leading-tight">
               Receba <span className="text-yellow-400">ofertas exclusivas</span>
             </h2>
-            <p className="text-purple-200 text-sm md:text-base leading-relaxed">
+            <p className="text-purple-200 text-base md:text-lg leading-relaxed">
               Cadastre-se e seja o primeiro a saber de lançamentos, descontos especiais e
               cupons imperdíveis. <strong className="text-white">Ganhe 10% OFF na sua primeira compra!</strong>
             </p>
@@ -40,7 +40,7 @@ export default function Newsletter() {
 
           {/* Right Form */}
           <div className="w-full max-w-md">
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-white/10">
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 lg:p-10 border border-white/10">
               {submitted ? (
                 <div className="flex items-center gap-4 text-white animate-scaleIn">
                   <div className="w-12 h-12 bg-green-500/30 rounded-full flex items-center justify-center">
@@ -53,7 +53,7 @@ export default function Newsletter() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-3">
-                  <div className="flex items-center gap-3 bg-white rounded-xl px-4 py-3 focus-within:ring-2 focus-within:ring-purple-400 transition-all">
+                  <div className="flex items-center gap-3 bg-white rounded-xl px-5 py-4 focus-within:ring-2 focus-within:ring-purple-400 transition-all">
                     <HiOutlineMail className="text-xl text-gray-400" />
                     <input
                       type="email"
@@ -61,14 +61,14 @@ export default function Newsletter() {
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Digite seu melhor e-mail"
                       required
-                      className="flex-1 outline-none bg-transparent text-gray-700 placeholder-gray-400 text-sm"
+                      className="flex-1 outline-none bg-transparent text-gray-700 placeholder-gray-400 text-base"
                     />
                   </div>
                   <button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-300 hover:to-yellow-400 text-purple-900 font-bold py-3.5 rounded-xl text-base transition-all duration-300 hover:shadow-xl hover:shadow-yellow-500/30 active:scale-[0.98] flex items-center justify-center gap-2"
+                    className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-300 hover:to-yellow-400 text-purple-900 font-bold py-4 rounded-xl text-base transition-all duration-300 hover:shadow-xl hover:shadow-yellow-500/30 active:scale-[0.98] flex items-center justify-center gap-2"
                   >
-                    <FiSend className="text-lg" />
+                    <FiSend className="text-xl" />
                     QUERO 10% OFF
                   </button>
                   <p className="text-xs text-purple-300 text-center">

@@ -88,7 +88,7 @@ function BannerCard({ banner, index }: { banner: PromoBanner; index: number }) {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => { setIsHovered(false); setMousePos({ x: 0, y: 0 }); }}
-      className={`relative bg-gradient-to-br ${banner.gradient} rounded-2xl p-7 md:p-9 min-h-[220px] md:min-h-[260px] flex flex-col justify-end overflow-hidden group hover:shadow-2xl transition-all duration-500 ${banner.textColor} ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+      className={`relative bg-gradient-to-br ${banner.gradient} rounded-2xl p-8 md:p-10 min-h-[240px] md:min-h-[280px] flex flex-col justify-end overflow-hidden group hover:shadow-2xl transition-all duration-500 ${banner.textColor} ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
       style={{
         transitionDelay: `${index * 100}ms`,
         transform: isHovered ? `perspective(800px) rotateX(${-mousePos.y}deg) rotateY(${mousePos.x}deg) scale(1.02)` : 'perspective(800px) rotateX(0) rotateY(0) scale(1)',
@@ -107,19 +107,19 @@ function BannerCard({ banner, index }: { banner: PromoBanner; index: number }) {
       )}
 
       {banner.subtitle && (
-        <p className="text-xs md:text-sm font-medium uppercase tracking-[0.1em] opacity-80 mb-1.5 group-hover:opacity-100 transition-opacity duration-300">
+        <p className="text-sm md:text-base font-medium uppercase tracking-[0.1em] opacity-80 mb-2 group-hover:opacity-100 transition-opacity duration-300">
           {banner.subtitle}
         </p>
       )}
-      <h3 className={`text-3xl md:text-4xl lg:text-5xl font-black mb-2 leading-tight ${banner.accent}`}>
+      <h3 className={`text-3xl md:text-4xl lg:text-5xl font-black mb-3 leading-tight ${banner.accent}`}>
         {banner.title}
       </h3>
       {banner.description && (
-        <p className="text-sm md:text-base lg:text-lg font-bold mb-5 md:mb-6 opacity-90">
+        <p className="text-base md:text-lg lg:text-xl font-bold mb-6 md:mb-8 opacity-90">
           {banner.description}
         </p>
       )}
-      <div className="flex items-center gap-2.5 text-sm md:text-base font-bold bg-white/20 hover:bg-white/30 transition-all duration-300 rounded-xl px-5 py-3 w-fit backdrop-blur-md group-hover:shadow-lg">
+      <div className="flex items-center gap-3 text-base md:text-lg font-bold bg-white/20 hover:bg-white/30 transition-all duration-300 rounded-xl px-6 py-3.5 w-fit backdrop-blur-md group-hover:shadow-lg">
         {banner.cta}
         <HiOutlineArrowRight className="text-lg group-hover:translate-x-1.5 transition-transform duration-300" />
       </div>
@@ -129,9 +129,9 @@ function BannerCard({ banner, index }: { banner: PromoBanner; index: number }) {
 
 export default function PromoBanners() {
   return (
-    <section className="bg-gradient-to-b from-gray-50 to-gray-100 py-10 md:py-12 lg:py-16">
-      <div className="max-w-[1280px] mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+    <section className="bg-gradient-to-b from-gray-50 to-gray-100 py-12 md:py-16 lg:py-20">
+      <div className="max-w-[1440px] mx-auto p-[5%]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {banners.map((banner, index) => (
             <BannerCard key={index} banner={banner} index={index} />
           ))}
