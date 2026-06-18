@@ -1,12 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
 import type { CategoryItem } from '../types';
 import useInView from '../hooks/useInView';
 
 import 'swiper/css';
-import 'swiper/css/navigation';
 
 const categories: CategoryItem[] = [
   { name: 'Carros, Motos e Outros', icon: '🚗', color: 'bg-blue-50 hover:bg-blue-100' },
@@ -46,7 +44,7 @@ export default function CategoryGrid() {
   const [sectionRef, isInView] = useInView({ threshold: 0.05 });
 
   return (
-    <section className="bg-gradient-to-b from-gray-100 to-gray-50 py-8 md:py-12">
+    <section className="bg-gradient-to-b from-gray-100 to-gray-50 py-10 md:py-12 lg:py-16">
       <div className="max-w-[1280px] mx-auto px-4">
         <div
           ref={sectionRef}
@@ -86,7 +84,6 @@ export default function CategoryGrid() {
           {/* Mobile Carousel */}
           <div className="md:hidden relative">
             <Swiper
-              modules={[Navigation]}
               spaceBetween={10}
               slidesPerView={3.5}
               className="pb-2"

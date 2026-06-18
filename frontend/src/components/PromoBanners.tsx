@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { HiOutlineArrowRight } from 'react-icons/hi';
 import type { PromoBanner } from '../types';
 import useInView from '../hooks/useInView';
+import CountdownTimer from './CountdownTimer';
 
 const banners: PromoBanner[] = [
   {
@@ -57,10 +58,20 @@ const banners: PromoBanner[] = [
   },
 ];
 
+function getTargetDate(index: number): string | null {
+  if (index === 0) {
+    const d = new Date();
+    d.setHours(d.getHours() + 24);
+    return d.toISOString();
+  }
+  return null;
+}
+
 function BannerCard({ banner, index }: { banner: PromoBanner; index: number }) {
   const [ref, isInView] = useInView({ threshold: 0.1 });
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
+  const targetDate = getTargetDate(index);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -88,6 +99,13 @@ function BannerCard({ banner, index }: { banner: PromoBanner; index: number }) {
       <div className="absolute -bottom-6 -left-6 w-28 h-28 bg-white/5 rounded-full group-hover:scale-125 transition-transform duration-700 delay-100" />
       <div className="absolute top-1/2 right-8 w-16 h-16 bg-white/5 rounded-full hidden md:block group-hover:scale-150 transition-transform duration-700 delay-200" />
 
+      {/* Countdown Timer on first banner — creates urgency */}
+      {targetDate && (
+        <div className="absolute top-4 right-4 z-10">
+          <CountdownTimer targetDate={targetDate} size="sm" label="Oferta relâmpago" />
+        </div>
+      )}
+
       {banner.subtitle && (
         <p className="text-xs md:text-sm font-medium uppercase tracking-[0.1em] opacity-80 mb-1.5 group-hover:opacity-100 transition-opacity duration-300">
           {banner.subtitle}
@@ -111,7 +129,7 @@ function BannerCard({ banner, index }: { banner: PromoBanner; index: number }) {
 
 export default function PromoBanners() {
   return (
-    <section className="bg-gradient-to-b from-gray-50 to-gray-100 py-8 md:py-10">
+    <section className="bg-gradient-to-b from-gray-50 to-gray-100 py-10 md:py-12 lg:py-16">
       <div className="max-w-[1280px] mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {banners.map((banner, index) => (

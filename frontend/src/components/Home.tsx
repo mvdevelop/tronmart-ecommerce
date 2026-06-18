@@ -5,6 +5,10 @@ import ProductCarousel from './ProductCarousel';
 import PromoBanners from './PromoBanners';
 import MeliPlus from './MeliPlus';
 import CategoryGrid from './CategoryGrid';
+import Testimonials from './Testimonials';
+import Newsletter from './Newsletter';
+import FloatingButtons from './FloatingButtons';
+import ExitIntentPopup from './ExitIntentPopup';
 import type { Product } from '../types';
 
 import productData from '../Data.json';
@@ -28,10 +32,13 @@ export default function Home() {
 
   return (
     <main id="main-content">
+      {/* HERO */}
       <HeroBanner />
 
+      {/* BENEFITS */}
       <BenefitsRow />
 
+      {/* RECENTLY VIEWED */}
       <ProductCarousel
         products={recentlyViewed}
         title="Inspirado no último visto"
@@ -40,6 +47,7 @@ export default function Home() {
 
       <SectionDivider />
 
+      {/* OFFERS CAROUSEL */}
       {ofertas.length > 0 && (
         <ProductCarousel
           products={ofertas}
@@ -48,19 +56,35 @@ export default function Home() {
         />
       )}
 
+      {/* PROMO BANNERS */}
       <PromoBanners />
 
+      {/* MAIS VENDIDOS */}
       <ProductCarousel
         products={maisVendidos}
         title="Mais vendidos 🔥"
         subtitle="Explore os produtos que são tendência agora"
       />
 
+      {/* TESTIMONIALS — Prova Social */}
+      <Testimonials />
+
       <SectionDivider />
 
+      {/* MELI+ */}
       <MeliPlus />
 
+      {/* CATEGORIES */}
       <CategoryGrid />
+
+      {/* NEWSLETTER — Captura de Leads */}
+      <Newsletter />
+
+      {/* Floating Action Buttons */}
+      <FloatingButtons />
+
+      {/* Exit Intent Popup */}
+      <ExitIntentPopup />
 
       <div className="h-4 bg-gray-50" />
     </main>

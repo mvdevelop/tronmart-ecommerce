@@ -1,13 +1,12 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination, Navigation, EffectFade } from 'swiper/modules';
+import { Autoplay, Pagination, EffectFade } from 'swiper/modules';
 import { Link } from 'react-router-dom';
 import { HiOutlineArrowRight } from 'react-icons/hi';
 import type { HeroSlide } from '../types';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
-import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
 
 const heroSlides: HeroSlide[] = [
@@ -56,18 +55,17 @@ const heroSlides: HeroSlide[] = [
 export default function HeroBanner() {
   return (
     <section className="bg-gradient-to-b from-purple-950/5 to-gray-100">
-      <div className="max-w-[1280px] mx-auto px-4 pt-3 pb-4">
+      <div className="w-full">
         <Swiper
-          modules={[Autoplay, Pagination, Navigation, EffectFade]}
+          modules={[Autoplay, Pagination, EffectFade]}
           effect="fade"
           fadeEffect={{ crossFade: true }}
           spaceBetween={0}
           slidesPerView={1}
           autoplay={{ delay: 5500, disableOnInteraction: false }}
           pagination={{ clickable: true, dynamicBullets: true }}
-          navigation
           loop={true}
-          className="rounded-2xl overflow-hidden shadow-xl"
+          className="w-full overflow-hidden"
         >
           {heroSlides.map((slide, index) => (
             <SwiperSlide key={index}>

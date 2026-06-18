@@ -35,99 +35,99 @@ export default function Nav() {
   return (
     <>
       {/* Accessibility Skip Links */}
-      <div className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-[9999] focus:p-4 focus:bg-purple-400 focus:text-white focus:font-bold">
+      <div className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-[9999] focus:p-4 focus:bg-gray-800 focus:text-white focus:font-bold">
         <a href="#main-content" className="mr-4">Pular para o conteúdo</a>
         <a href="#nav-search" className="mr-4">Pular para a busca</a>
         <a href="#footer">Ir para o rodapé</a>
       </div>
 
       {/* ===== TOP BAR ===== */}
-      <div className="bg-purple-950 text-sm text-white">
-        <div className="max-w-[1280px] mx-auto flex items-center justify-between px-4 py-1.5">
-          <div className="flex items-center gap-4 text-xs text-purple-200">
-            <div className="hidden sm:flex items-center gap-1 hover:text-purple-300 cursor-pointer transition-colors duration-200">
+      <div className="bg-gray-950 text-base text-white">
+        <div className="max-w-[1280px] mx-auto flex items-center justify-between px-4 py-3">
+          <div className="flex items-center gap-5 text-sm text-gray-400">
+            <div className="hidden sm:flex items-center gap-1 hover:text-gray-300 cursor-pointer transition-colors duration-200">
               <HiOutlineLocationMarker className="text-base" />
               <span>Enviar para <strong>Teresópolis 25954055</strong></span>
             </div>
           </div>
-          <div className="flex items-center gap-4 text-xs">
-            <span className="hidden md:block hover:text-purple-300 cursor-pointer transition-colors duration-200">Ajuda</span>
-            <span className="hidden md:block hover:text-purple-300 cursor-pointer transition-colors duration-200">Contato</span>
-            <span className="hover:text-purple-300 cursor-pointer flex items-center gap-1.5 transition-colors duration-200 group">
-              <HiOutlineUser className="text-lg transition-transform duration-200 group-hover:scale-110" />
+          <div className="flex items-center gap-5 text-sm">
+            <span className="hidden md:block hover:text-gray-300 cursor-pointer transition-colors duration-200">Ajuda</span>
+            <span className="hidden md:block hover:text-gray-300 cursor-pointer transition-colors duration-200">Contato</span>
+            <span className="hover:text-gray-300 cursor-pointer flex items-center gap-1.5 transition-colors duration-200 group">
+              <HiOutlineUser className="text-xl transition-transform duration-200 group-hover:scale-110" />
               <span className="hidden sm:inline">Marcos</span>
             </span>
-            <span className="hover:text-purple-300 cursor-pointer transition-colors duration-200">Minhas Compras</span>
-            <span className="hover:text-purple-300 cursor-pointer relative transition-colors duration-200 group">
-              <HiOutlineHeart className="text-xl transition-transform duration-200 group-hover:scale-110" />
+            <span className="hover:text-gray-300 cursor-pointer transition-colors duration-200">Minhas Compras</span>
+            <span className="hover:text-gray-300 cursor-pointer relative transition-colors duration-200 group">
+              <HiOutlineHeart className="text-2xl transition-transform duration-200 group-hover:scale-110" />
             </span>
-            <span className="hover:text-purple-300 cursor-pointer relative transition-colors duration-200 group">
-              <HiOutlineShoppingCart className="text-xl transition-transform duration-200 group-hover:scale-110" />
-              <span className="absolute -top-2 -right-2 bg-purple-500 text-white text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center animate-fadeInDown">0</span>
+            <span className="hover:text-gray-300 cursor-pointer relative transition-colors duration-200 group">
+              <HiOutlineShoppingCart className="text-2xl transition-transform duration-200 group-hover:scale-110" />
+              <span className="absolute -top-2 -right-2 bg-gray-600 text-white text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center animate-fadeInDown">0</span>
             </span>
           </div>
         </div>
       </div>
 
       {/* ===== MAIN HEADER ===== */}
-      <header className="bg-gradient-to-r from-purple-900 via-purple-900 to-purple-800 sticky top-0 z-50 shadow-lg">
-        <div className="max-w-[1280px] mx-auto px-4 py-3 flex items-center gap-4">
+      <header className="bg-gray-950 sticky top-0 z-50 shadow-lg">
+        <div className="max-w-[1280px] mx-auto px-4 py-5 flex items-center gap-5">
           <button
             onClick={toggleMenu}
-            className="lg:hidden text-2xl p-1.5 text-white hover:bg-purple-800 rounded-lg transition-colors"
+            className="lg:hidden text-2xl p-1.5 text-white hover:bg-gray-800 rounded-lg transition-colors"
             aria-label="Abrir menu"
           >
             {menuOpen ? <HiOutlineX className="transition-transform duration-300 rotate-90" /> : <HiOutlineMenu />}
           </button>
 
           <Link to="/" className="flex-shrink-0 group">
-            <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">
-              <span className="text-purple-300 group-hover:text-purple-200 transition-colors duration-300">Tron</span>
-              <span className="text-white group-hover:text-purple-100 transition-colors duration-300">Mart</span>
+            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">
+              <span className="text-gray-300 group-hover:text-white transition-colors duration-300">Tron</span>
+              <span className="text-white">Mart</span>
             </h1>
           </Link>
 
           <div className="hidden sm:flex flex-1 max-w-[600px] relative">
-            <div className="w-full flex shadow-lg rounded-xl overflow-hidden bg-white border-2 border-transparent focus-within:border-purple-400 focus-within:shadow-purple-500/20 transition-all duration-300">
+            <div className="w-full flex shadow-lg rounded-xl overflow-hidden bg-white border-2 border-transparent focus-within:border-gray-400 focus-within:shadow-gray-500/20 transition-all duration-300">
               <input
                 id="nav-search"
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Buscar produtos, marcas e muito mais..."
-                className="flex-1 px-4 py-3 text-base outline-none text-gray-700 placeholder-gray-400"
+                className="flex-1 px-5 py-4 text-lg outline-none text-gray-700 placeholder-gray-400"
               />
-              <button className="px-6 flex items-center justify-center bg-purple-700 hover:bg-purple-600 border-l border-purple-600 text-white transition-all duration-300 hover:shadow-inner">
-                <HiOutlineSearch className="text-xl" />
+              <button className="px-7 flex items-center justify-center bg-gray-800 hover:bg-gray-700 border-l border-gray-700 text-white transition-all duration-300 hover:shadow-inner">
+                <HiOutlineSearch className="text-2xl" />
               </button>
             </div>
           </div>
 
           <div className="flex sm:hidden items-center gap-3 ml-auto">
-            <button onClick={() => setSearchOpen(!searchOpen)} className="text-2xl p-1.5 text-white hover:bg-purple-800 rounded-lg transition-colors">
+            <button onClick={() => setSearchOpen(!searchOpen)} className="text-2xl p-1.5 text-white hover:bg-gray-800 rounded-lg transition-colors">
               <HiOutlineSearch />
             </button>
-            <Link to="/carrinho" className="relative p-1.5 text-white hover:bg-purple-800 rounded-lg transition-colors">
+            <Link to="/carrinho" className="relative p-1.5 text-white hover:bg-gray-800 rounded-lg transition-colors">
               <HiOutlineShoppingCart className="text-2xl" />
-              <span className="absolute -top-1 -right-1 bg-purple-500 text-white text-[10px] font-bold rounded-full w-4.5 h-4.5 flex items-center justify-center badge-pop">0</span>
+              <span className="absolute -top-1 -right-1 bg-gray-600 text-white text-[10px] font-bold rounded-full w-4.5 h-4.5 flex items-center justify-center badge-pop">0</span>
             </Link>
           </div>
 
-          <button className="hidden lg:flex items-center gap-2.5 px-5 py-3 bg-purple-700 hover:bg-purple-600 active:bg-purple-500 text-white text-sm font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/30 active:scale-95">
-            <FiPackage className="text-lg" />
+          <button className="hidden lg:flex items-center gap-3 px-6 py-3.5 bg-gray-800 hover:bg-gray-700 active:bg-gray-600 text-white text-base font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-gray-500/30 active:scale-95">
+            <FiPackage className="text-xl" />
             Minhas compras
           </button>
         </div>
 
         {searchOpen && (
           <div className="sm:hidden px-4 pb-3 animate-fadeInDown">
-            <div className="flex shadow-lg rounded-xl overflow-hidden bg-white border-2 border-purple-400">
+            <div className="flex shadow-lg rounded-xl overflow-hidden bg-white border-2 border-gray-600">
               <input
                 type="text"
                 placeholder="Buscar produtos, marcas e muito mais..."
                 className="flex-1 px-4 py-3 text-sm outline-none text-gray-700 placeholder-gray-400"
               />
-              <button className="px-5 flex items-center justify-center bg-purple-700 text-white">
+              <button className="px-5 flex items-center justify-center bg-gray-800 text-white">
                 <HiOutlineSearch className="text-lg" />
               </button>
             </div>
@@ -136,16 +136,16 @@ export default function Nav() {
       </header>
 
       {/* ===== CATEGORIES BAR ===== */}
-      <nav className="bg-gradient-to-r from-purple-800 via-purple-800 to-purple-700 border-b border-purple-600 shadow-md">
+      <nav className="bg-gray-900 border-b border-gray-800 shadow-md">
         <div className="max-w-[1280px] mx-auto px-4">
-          <div className="hidden lg:flex items-center gap-0 py-2 overflow-x-auto">
+          <div className="hidden lg:flex items-center gap-0 py-3 overflow-x-auto">
             <div
               className="relative"
               onMouseEnter={() => setShowCategoryMenu(true)}
               onMouseLeave={() => setShowCategoryMenu(false)}
             >
-              <button className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-purple-200 hover:text-white hover:bg-purple-700/60 rounded-lg whitespace-nowrap transition-all duration-200">
-                <HiOutlineMenu className="text-lg" />
+              <button className="flex items-center gap-2 px-4 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg whitespace-nowrap transition-all duration-200">
+                <HiOutlineMenu className="text-xl" />
                 Categorias
                 <HiOutlineChevronDown className={`text-xs transition-all duration-300 ${showCategoryMenu ? 'rotate-180' : ''}`} />
               </button>
@@ -156,13 +156,13 @@ export default function Nav() {
                       <Link
                         key={i}
                         to={`/categoria/${slugify(cat)}`}
-                        className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-700 hover:pl-5 border-b border-gray-50 last:border-0 transition-all duration-200"
+                        className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 hover:pl-5 border-b border-gray-50 last:border-0 transition-all duration-200"
                       >
                         {cat}
                       </Link>
                     ))}
                   </div>
-                  <Link to="/categorias" className="block px-4 py-3 text-sm font-semibold text-purple-700 hover:bg-purple-50 border-t border-gray-100 transition-all duration-200">
+                  <Link to="/categorias" className="block px-4 py-3 text-sm font-semibold text-gray-900 hover:bg-gray-50 border-t border-gray-100 transition-all duration-200">
                     Mostrar todas as categorias →
                   </Link>
                 </div>
@@ -173,19 +173,19 @@ export default function Nav() {
               <Link
                 key={i}
                 to={`/${slugify(link)}`}
-                className="px-3 py-1.5 text-sm text-purple-200 hover:text-white hover:bg-purple-700/60 rounded-lg whitespace-nowrap transition-all duration-200"
+                className="px-4 py-2 text-base text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg whitespace-nowrap transition-all duration-200"
               >
                 {link}
               </Link>
             ))}
           </div>
 
-          <div className="lg:hidden flex items-center gap-1.5 py-2 overflow-x-auto scrollbar-hide">
+          <div className="lg:hidden flex items-center gap-2 py-3 overflow-x-auto scrollbar-hide">
             {["Categorias", "Ofertas", "Cupons", "Supermercado", "Moda", "Mercado Play", "Vender"].map((link, i) => (
               <Link
                 key={i}
                 to={`/${slugify(link)}`}
-                className="flex-shrink-0 px-3.5 py-2 text-xs font-medium text-purple-200 hover:text-white bg-purple-700/40 hover:bg-purple-600 rounded-full whitespace-nowrap border border-purple-500/50 transition-all duration-200"
+                className="flex-shrink-0 px-4 py-2.5 text-sm font-medium text-gray-300 hover:text-white bg-gray-800 hover:bg-gray-700 rounded-full whitespace-nowrap border border-gray-700 transition-all duration-200"
               >
                 {link}
               </Link>
@@ -199,18 +199,18 @@ export default function Nav() {
         <>
           <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden animate-fadeInUp" onClick={toggleMenu} />
           <div className="fixed top-0 left-0 bottom-0 w-[300px] max-w-[85vw] bg-white z-50 overflow-y-auto shadow-2xl lg:hidden animate-fadeInLeft">
-            <div className="flex items-center justify-between p-4 border-b border-gray-100 bg-gradient-to-r from-purple-50 to-white">
-              <h2 className="font-bold text-lg text-purple-900">Menu</h2>
+            <div className="flex items-center justify-between p-4 border-b border-gray-100 bg-gray-50">
+              <h2 className="font-bold text-lg text-gray-900">Menu</h2>
               <button onClick={toggleMenu} className="text-2xl p-1.5 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
                 <HiOutlineX />
               </button>
             </div>
-            <div className="p-4 border-b border-gray-100 flex items-center gap-3 bg-purple-50/50">
-              <div className="w-12 h-12 bg-gradient-to-br from-purple-700 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-md">
+            <div className="p-4 border-b border-gray-100 flex items-center gap-3 bg-gray-50">
+              <div className="w-12 h-12 bg-gradient-to-br from-gray-700 to-gray-500 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-md">
                 M
               </div>
               <div>
-                <p className="font-semibold text-sm text-purple-900">Marcos</p>
+                <p className="font-semibold text-sm text-gray-900">Marcos</p>
                 <p className="text-xs text-gray-500">md@email.com</p>
               </div>
             </div>
@@ -219,7 +219,7 @@ export default function Nav() {
                 <Link
                   key={i}
                   to={`/${slugify(item)}`}
-                  className="block px-4 py-3 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-700 hover:pl-5 border-b border-gray-50 transition-all duration-200"
+                  className="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 hover:pl-5 border-b border-gray-50 transition-all duration-200"
                   onClick={toggleMenu}
                 >
                   {item}

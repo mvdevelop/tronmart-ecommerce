@@ -1,8 +1,8 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Autoplay } from 'swiper/modules';
+import { Autoplay } from 'swiper/modules';
 import { Link } from 'react-router-dom';
-import { HiOutlineTruck, HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi';
+import { HiOutlineTruck } from 'react-icons/hi';
 import type { Product, ProductCarouselProps } from '../types';
 import useInView from '../hooks/useInView';
 
@@ -24,8 +24,6 @@ const calcDiscount = (oldPrice: string, currentPrice: string): number | null => 
 
 export default function ProductCarousel({ products, title, subtitle }: ProductCarouselProps) {
   const [sectionRef, isInView] = useInView({ threshold: 0.1 });
-  const prevRef = useRef<HTMLButtonElement>(null);
-  const nextRef = useRef<HTMLButtonElement>(null);
 
   if (!products || products.length === 0) return null;
 
@@ -52,20 +50,12 @@ export default function ProductCarousel({ products, title, subtitle }: ProductCa
           </Link>
         </div>
 
-        <div className="relative group">
+        <div className="relative">
           <Swiper
-            modules={[Navigation, Autoplay]}
+            modules={[Autoplay]}
             spaceBetween={14}
             slidesPerView={2}
             autoplay={{ delay: 4000, disableOnInteraction: true, pauseOnMouseEnter: true }}
-            navigation={{
-              prevEl: prevRef.current,
-              nextEl: nextRef.current,
-            }}
-            onBeforeInit={(swiper) => {
-              swiper.params.navigation.prevEl = prevRef.current;
-              swiper.params.navigation.nextEl = nextRef.current;
-            }}
             breakpoints={{
               640: { slidesPerView: 3, spaceBetween: 16 },
               768: { slidesPerView: 4, spaceBetween: 18 },
@@ -135,19 +125,6 @@ export default function ProductCarousel({ products, title, subtitle }: ProductCa
               );
             })}
           </Swiper>
-
-          <button
-            ref={prevRef}
-            className="swiper-prev-custom absolute -left-3 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white shadow-lg rounded-full flex items-center justify-center text-gray-600 hover:text-purple-700 hover:shadow-xl opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110 hidden md:flex border border-gray-100"
-          >
-            <HiOutlineChevronLeft className="text-xl" />
-          </button>
-          <button
-            ref={nextRef}
-            className="swiper-next-custom absolute -right-3 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white shadow-lg rounded-full flex items-center justify-center text-gray-600 hover:text-purple-700 hover:shadow-xl opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110 hidden md:flex border border-gray-100"
-          >
-            <HiOutlineChevronRight className="text-xl" />
-          </button>
         </div>
       </div>
     </section>

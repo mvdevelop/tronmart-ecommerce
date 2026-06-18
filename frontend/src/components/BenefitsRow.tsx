@@ -94,7 +94,7 @@ function BenefitCard({ benefit, index }: { benefit: BenefitItem; index: number }
 
 export default function BenefitsRow() {
   return (
-    <section className="bg-gradient-to-b from-gray-50 to-gray-100 py-8 md:py-10">
+    <section className="bg-gradient-to-b from-gray-50 to-gray-100 py-10 md:py-12 lg:py-16">
       <div className="max-w-[1280px] mx-auto px-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {benefits.map((benefit, index) => (
